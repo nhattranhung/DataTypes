@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'react-native-get-random-values';
 import Parse from 'parse/react-native.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaProvider } from 'react-native-safe-area-view';
@@ -31,17 +32,24 @@ export const ProductCreation = () => {
     const [productExpirationDate, setProductExpirationDate] = useState('');
     const [productCategories, setProductCategories] = useState('');
 
+    var productNameValue = "";
+    var productQuantityValue = "";
+    var productPriceValue = "";
+    var productAvailableValue = "";
+    var productExpirationDateValue = "";
+    var productCategoriesValue = "";
+
     const toggleProductAvailable = () => setProductAvailable(!productAvailable);
 
     const createProduct = async function () {
         try {
             // format input to save data
-            const productNameValue = productName;
-            const productQuantityValue = Number(productQuantity);
-            const productPriceValue = Number(productPrice);
-            const productAvailableValue = productAvailable;
-            const productExpirationDateValue = new Date(productExpirationDate);
-            const productCategoriesValue = productCategories.split(',');
+            productNameValue = productName;
+            productQuantityValue = Number(productQuantity);
+            productPriceValue = Number(productPrice);
+            productAvailableValue = productAvailable;
+            productExpirationDateValue = new Date(productExpirationDate);
+            productCategoriesValue = productCategories.split(',');
         } catch (error) {
             // catch error
             Alert.alert('Error!', error.message);
