@@ -104,7 +104,10 @@ return (
             </View>
             <View style={Styles.wrapper}>
                 <View style={Styles.switch_container}>
-                    <Text>Available?</Text>
+                    <Text style={{
+                        color: '#00cc00',
+                        fontWeight: 'bold',
+                    }}>Available?</Text>
                     <Switch
                         value={productAvailable}
                         onValueChange={toggleProductAvailable}
